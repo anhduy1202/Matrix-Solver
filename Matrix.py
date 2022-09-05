@@ -10,7 +10,7 @@ class Matrix:
         print(f'\nSIZE: ({self.row} x {self.col})')
     
     def rank(self):
-        print(f'\RANK: {len(self.leadingOnesRow)}')
+        print(f'\nRANK: {len(self.leadingOnesRow)}')
 
     def printMatrix(self):
         for i in self.matrix:
@@ -86,7 +86,7 @@ class Matrix:
             # Found a one but not a leading one
             if exist and not (row == r and column == c):
                 self.multiplyAndAdd(row, c)
-                
+
             # Find/Create leading ones
             if not exist and self.matrix[r][c] != 1:
                 if r < row and row not in self.leadingOnesRow:

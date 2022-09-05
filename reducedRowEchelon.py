@@ -26,11 +26,7 @@ matrix6 = Matrix(matrix=[[1,0,1,0,1,0,0,50],
                          [0,-1,0,-1,0,0,-1,-60],
                          [0,0,-1,1,0,1,0,75],
                          [0,0,0,0,-1,-1,1,-40]])   
-
-matrix7 = Matrix(matrix=[[1,1,-1,-2,0],
-                         [0,1,-1,-1,0],
-                         [0,1,3,-2,0]])
-
+                         
 matrix6.reducedRowEchelon()
 matrix6.rank()
 matrix6.size()
