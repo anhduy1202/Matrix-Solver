@@ -6,25 +6,36 @@ class Matrix:
         self.leadingOnesRow = set()
         self.leadingOnesCol = set()
 
+    def size(self):
+        print(f'\nSIZE: ({self.row} x {self.col})')
+    
+    def rank(self):
+        print(f'\RANK: {len(self.leadingOnesRow)}')
+
+    def printMatrix(self):
+        for i in self.matrix:
+            print('\t'.join(map(str, i)))
+
     def divideRow(self, row, divisor):
         print(f"\nDivide row {row+1} by {divisor}")
         column = 0
         while column < self.col:
             self.matrix[row][column] /= divisor
             column += 1
-        print(self.matrix)
+        self.printMatrix()
 
-    def multiplyAndAdd(self,row,col):
+    def multiplyAndAdd(self, row, col):
         rowArr = self.matrix[row]
         colArr = [-arr[col] for arr in self.matrix]
         for r in range(self.row):
             for c in range(self.col):
                 if r == row:
                     continue
-                print(f"\nMultiply row {r+1} by {colArr[r]} adding to row {r+1}")
+                print(
+                    f"\nMultiply row {row+1} by {colArr[r]} adding to row {r+1}")
                 newEntry = (rowArr[c]*colArr[r])+self.matrix[r][c]
                 self.matrix[r][c] = newEntry
-                print(self.matrix)
+                self.printMatrix()
 
     def swapRow(self, originalRow, rowtoSwap):
         print(f"\nSwap row {originalRow+1} with row {rowtoSwap+1}")
@@ -37,27 +48,30 @@ class Matrix:
                 self.leadingOnesRow.add(row)
                 self.leadingOnesCol.add(0)
         self.divideRow(0, self.matrix[0][0])
-    
-    def findLeadingOne(self,c):
+
+    def findLeadingOne(self, c):
         for row in range(self.row):
             if self.matrix[row][c] == 0:
                 continue
             if row in self.leadingOnesRow or c in self.leadingOnesCol:
                 continue
             if self.matrix[row][c] == 1:
-                return (row,c)
+                self.leadingOnesRow.add(row)
+                self.leadingOnesCol.add(c)
+                return (row, c, True)
+        return (0, 0, False)
 
     def firstLeadingOne(self):
         firstEntry = self.matrix[0][0]
         if firstEntry != 1:
             self.findFirstLeadingOne()
-        self.multiplyAndAdd(0,0)
+        self.multiplyAndAdd(0, 0)
         self.leadingOnesRow.add(0)
-        self.leadingOnesCol.add(0)   
+        self.leadingOnesCol.add(0)
 
     def reducedRowEchelon(self):
         print("ORIGINAL MATRIX: ")
-        print(self.matrix)
+        self.printMatrix()
         self.firstLeadingOne()
         c = 1
         r = 0
@@ -66,26 +80,27 @@ class Matrix:
                 c += 1
                 r = 0
             result = self.findLeadingOne(c)
-            tuples = result if result else (0,0)
-            row,col = tuples
-            if self.matrix[r][c] != 1:
-                #Find/Create leading ones
-                if not (r in self.leadingOnesRow or c in self.leadingOnesCol):
-                    if r < row and row in self.leadingOnesRow:
-                        self.swapRow(r,row)
-                        self.multiplyAndAdd(r,c)
-                        self.leadingOnesRow.add(r)
-                        self.leadingOnesCol.add(c)
-                          
-                    elif (self.matrix[r][c] != 0):
-                        self.divideRow(r,self.matrix[r][c])
-                        self.multiplyAndAdd(r,c)
-                        self.leadingOnesRow.add(r)
-                        self.leadingOnesCol.add(c)
-                else:
-                    self.multiplyAndAdd(row,c)
-                    
+            tuples = result if result else (0, 0)
+            row, column, exist = tuples
 
+            # Found a one but not a leading one
+            if exist and not (row == r and column == c):
+                self.multiplyAndAdd(row, c)
+                
+            # Find/Create leading ones
+            if not exist and self.matrix[r][c] != 1:
+                if r < row and row not in self.leadingOnesRow:
+                    self.swapRow(r, row)
+                    self.multiplyAndAdd(r, c)
+                    self.leadingOnesRow.add(r)
+                    self.leadingOnesCol.add(c)
+
+                else:
+                    if self.matrix[r][c] != 0 and r not in self.leadingOnesRow:
+                        self.divideRow(r, self.matrix[r][c])
+                        self.multiplyAndAdd(r, c)
+                        self.leadingOnesRow.add(r)
+                        self.leadingOnesCol.add(c)
             r += 1
         print("\n ------- REDUCED ECHELON FORM MATRIX: -------")
-        print(self.matrix)
+        self.printMatrix()

@@ -17,5 +17,20 @@ matrix4 = Matrix(matrix=[[1,0,-1,1,0,40],
                         [0,1,1,0,1,60],
                         [-1,-1,0,0,0,-50]])
 
-matrix5 = Matrix(matrix=[[3,6,-3,-6,0],[3,7,-4,-7,0],[2,2,1,-2,0]])
-matrix4.reducedRowEchelon()
+matrix5 = Matrix(matrix=[[3,6,-3,-6,0],
+                         [3,7,-4,-7,0],
+                         [2,2,1,-2,0]])
+
+matrix6 = Matrix(matrix=[[1,0,1,0,1,0,0,50],
+                         [-1,1,0,0,0,0,0,-25],
+                         [0,-1,0,-1,0,0,-1,-60],
+                         [0,0,-1,1,0,1,0,75],
+                         [0,0,0,0,-1,-1,1,-40]])   
+
+matrix7 = Matrix(matrix=[[1,1,-1,-2,0],
+                         [0,1,-1,-1,0],
+                         [0,1,3,-2,0]])
+
+matrix6.reducedRowEchelon()
+matrix6.rank()
+matrix6.size()
