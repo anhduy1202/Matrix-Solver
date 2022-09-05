@@ -81,8 +81,7 @@ class Matrix:
                 c += 1
                 r = 0
             result = self.findLeadingOne(c)
-            tuples = result if result else (0, 0)
-            row, column, exist = tuples
+            row, column, exist = result
 
             # Found a one but not a leading one
             if exist and not (row == r and column == c):
