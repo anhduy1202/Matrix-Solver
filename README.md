@@ -29,9 +29,16 @@
 | .parameter() | Print out the parameter column of the matrix |
 
 ## Examples:
-![image](https://user-images.githubusercontent.com/58461444/188520173-e70b4686-161b-4c78-99f0-a68428a451ca.png)
+![image](https://user-images.githubusercontent.com/58461444/188607161-c988c3f0-457e-4c05-82c2-648514303dce.png)
+
 
 ## Outputs:
-![image](https://user-images.githubusercontent.com/58461444/188520252-39bb1566-294e-42f2-94a5-78b8692384a6.png)
-![image](https://user-images.githubusercontent.com/58461444/188520289-9bb651a0-64d6-40e4-9447-5241262b46e3.png)
+![image](https://user-images.githubusercontent.com/58461444/188607269-bbc7d750-993a-4dd1-9a5d-f0f795f8bf2b.png)
+![image](https://user-images.githubusercontent.com/58461444/188607368-935e7172-6c73-4c89-983d-8259d43e1058.png)
+
+## Result:
+![image](https://user-images.githubusercontent.com/58461444/188607456-a7212231-e1c2-4662-8dac-24290e0288c1.png)
+
+
+
 
