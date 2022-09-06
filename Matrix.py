@@ -13,6 +13,10 @@ class Matrix:
     def rank(self):
         print(f'\nRANK: {len(self.leadingOnesRow)}')
 
+    def parameter(self):
+        param = self.col - len(self.leadingOnesRow)
+        print(f'\nPARAMETER COLUMN: {param}') 
+
     def printMatrix(self):
         for i in self.matrix:
             print('\t'.join(map(str, i)))
