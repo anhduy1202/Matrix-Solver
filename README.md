@@ -1,5 +1,5 @@
-# RRE-Solver
-> Reduced Row Echelon Form Solver with step by step explanation
+# Matrix-Solver
+> A Terminal Prorgam that help you solve matrix problem including Reduced Row Echelon Form, Rank, Tranpose, ...
 
 ## Requirements
 * Python version >= 3.0 
@@ -9,7 +9,7 @@
 ### I. Setup ( 2 ways )
 
 **1.  Clone this repo [Preferred]**
-``` git clone https://github.com/anhduy1202/RRE-Solver.git ```
+``` git clone https://github.com/anhduy1202/Matrix-Solver.git ```
 
 **2.  Download Zip file**
 ![Screenshot 2022-09-05 161740](https://user-images.githubusercontent.com/58461444/188519871-1fe56c9a-f43c-48df-b137-43eb83d99188.jpg)
@@ -27,6 +27,7 @@
 | .rank()  | Print out the rank of the matrix after reduced row echelon  |
 | .size() | Print out the size of the matrix in the format (row x column) |
 | .parameter() | Print out the parameter column of the matrix |
+| .tranpose() | Print out the transpose of the matrix |
 
 ## Examples:
 ![image](https://user-images.githubusercontent.com/58461444/188607161-c988c3f0-457e-4c05-82c2-648514303dce.png)
