@@ -24,7 +24,7 @@
 
 | Functions  | Description |
 | ------------- | ------------- |
-| reducedRowEchelon()  | Print out the reduced row echelon form of any matrix using elementary row operations  |
+| .reducedRowEchelon()  | Print out the reduced row echelon form of any matrix using elementary row operations  |
 | .rank()  | Print out the rank of the matrix after reduced row echelon  |
 | .size() | Print out the size of the matrix in the format (row x column) |
 | .parameter() | Print out the parameter column of the matrix |
