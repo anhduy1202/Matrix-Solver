@@ -21,6 +21,13 @@ class Matrix:
         for i in self.matrix:
             print('\t'.join(map(str, i)))
 
+    def transpose(self):
+        for r in range(self.row):
+            for c in range(r):
+                self.matrix[r][c], self.matrix[c][r] = self.matrix[c][r], self.matrix[r][c]
+        print("\nTRANSPOSE: ")
+        self.printMatrix() 
+
     def divideRow(self, row, divisor):
         print(f"\nDivide row {row+1} by {divisor}")
         column = 0
