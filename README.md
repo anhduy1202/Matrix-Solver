@@ -1,5 +1,5 @@
 # Matrix-Solver
-> A terminal program that help you solve matrix problem including Reduced Row Echelon Form, Rank, Tranpose, ...
+> A terminal program that helps you solve matrix problem such as Reduced Row Echelon Form, Rank, Tranpose, ...
 
 ## Requirements
 * Python version >= 3.0 
